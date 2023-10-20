@@ -3,3 +3,5 @@
 vendor/
 docker-compose.yml
 docker/
+public/
+log/
