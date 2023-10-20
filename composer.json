@@ -1,0 +1,16 @@
+{
+    "name": "denisyakunin/app",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Denis Yakunin",
+            "email": "denis.yakunin9856@gmail.com"
+        }
+    ],
+    "require": {}
+}

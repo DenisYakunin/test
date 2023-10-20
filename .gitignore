@@ -1,0 +1,5 @@
+.idea/
+*.log
+vendor/
+docker-compose.yml
+docker/
