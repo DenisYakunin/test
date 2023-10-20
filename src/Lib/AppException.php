@@ -10,7 +10,7 @@ class AppException extends \Exception
         if (!file_exists(__DIR__ . '/../../log')) {
             mkdir(__DIR__ . '/../../log');
         }
-        file_put_contents(__DIR__ . '/../../log/exceptions/exception.log', $date->format('Y-m-d H:i:s') . ': "' . $this->getMessage() . '"' . PHP_EOL, FILE_APPEND);
+        file_put_contents(__DIR__ . '/../../log/exception.log', $date->format('Y-m-d H:i:s') . ': "' . $this->getMessage() . '"' . PHP_EOL, FILE_APPEND);
     }
 
     public static function responseException(int $code)
