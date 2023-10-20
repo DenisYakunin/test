@@ -7,7 +7,7 @@ class AppException extends \Exception
     public function logException()
     {
         $date = new \DateTime('now', new \DateTimeZone('Europe/Moscow'));
-        file_put_contents('/app/var/log/exceptions/exception.log', $date->format('Y-m-d H:i:s') . ': "' . $this->getMessage() . '"' . PHP_EOL, FILE_APPEND);
+        file_put_contents(__DIR__ . '/../../log/exceptions/exception.log', $date->format('Y-m-d H:i:s') . ': "' . $this->getMessage() . '"' . PHP_EOL, FILE_APPEND);
     }
 
     public static function responseException(int $code)

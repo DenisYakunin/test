@@ -10,7 +10,7 @@ class ProductController extends Controller
     protected array $products;
 
     public function getProducts(): void {
-        $this->storageModel = $this->loadModel('Storage', '/app/storage.txt');
+        $this->storageModel = $this->loadModel('Storage', __DIR__ . '/../../storage.txt');
         $this->products = $this->storageModel->getProducts();
         $this->view->render('Products/default', $this->products);
     }
@@ -29,7 +29,7 @@ class ProductController extends Controller
             $arr['status'] = $_POST['status'];
             $arr['amount_available'] = $_POST['amount_available'];
         }
-        $this->storageModel = $this->loadModel('Storage', '/app/storage.txt');
+        $this->storageModel = $this->loadModel('Storage', __DIR__ . '/../../storage.txt');
         $this->products = $this->storageModel->getProducts();
 
         $product = $this->loadModel('Product', $arr);
@@ -41,7 +41,7 @@ class ProductController extends Controller
     }
 
     public function getProduct(int $id): void {
-        $this->storageModel = $this->loadModel('Storage', '/app/storage.txt');
+        $this->storageModel = $this->loadModel('Storage', __DIR__ . '/../../storage.txt');
         $this->products = $this->storageModel->getProducts();
         if (!isset($this->products[$id])) {
             throw new AppException('Некоректный id', 400);
@@ -50,7 +50,7 @@ class ProductController extends Controller
     }
 
     public function deleteProduct(int $id): void {
-        $this->storageModel = $this->loadModel('Storage', '/app/storage.txt');
+        $this->storageModel = $this->loadModel('Storage', __DIR__ . '/../../storage.txt');
         $this->products = $this->storageModel->getProducts();
         if (!isset($this->products[$id])) {
             throw new AppException('Некоректный id', 400);
@@ -61,7 +61,7 @@ class ProductController extends Controller
     }
 
     public function updateProduct(int $id): void {
-        $this->storageModel = $this->loadModel('Storage', '/app/storage.txt');
+        $this->storageModel = $this->loadModel('Storage', __DIR__ . '/../../storage.txt');
         $this->products = $this->storageModel->getProducts();
         if (!isset($this->products[$id])) {
             throw new AppException('Некоректный id', 400);
@@ -76,7 +76,7 @@ class ProductController extends Controller
     }
 
     public function updateProductParam(int $id): void {
-        $this->storageModel = $this->loadModel('Storage', '/app/storage.txt');
+        $this->storageModel = $this->loadModel('Storage', __DIR__ . '/../../storage.txt');
         $this->products = $this->storageModel->getProducts();
         if (!isset($this->products[$id])) {
             throw new AppException('Некоректный id', 400);
@@ -102,7 +102,7 @@ class ProductController extends Controller
         if (!$this->hasAccess(false)) {
             throw new AppException('Требуется авторизация', 401);
         }
-        $this->storageModel = $this->loadModel('Storage', '/app/storage.txt');
+        $this->storageModel = $this->loadModel('Storage', __DIR__ . '/../../storage.txt');
         $this->products = $this->storageModel->getProducts();
         $this->view->render('Products/default', $this->products);
     }

@@ -9,10 +9,10 @@ class Router
     public function __construct() {
 
         $url = trim($_SERVER['REQUEST_URI'], "/");
-        $arr = require_once '/app/src/Config/routes.php';
+        $arr = require_once __DIR__ . '/../Config/routes.php';
 
         $param = $this->findParams($arr, $url);
-        $controllerPath = '/app/src/Controllers/' . $param['controller'] . '.php';
+        $controllerPath = __DIR__ . '/../Controllers/' . $param['controller'] . '.php';
 
         if(!file_exists($controllerPath)) {
             http_response_code('404');
