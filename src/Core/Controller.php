@@ -13,7 +13,7 @@ class Controller
 
     public function loadModel($modelName, $arg = null) {
 
-        $modelPath = '/app/src/Models/' . $modelName . '.php';
+        $modelPath = __DIR__ . '/../Models/' . $modelName . '.php';
 
         if(!file_exists($modelPath)){
             throw new AppException('Модель не существует', 404);
