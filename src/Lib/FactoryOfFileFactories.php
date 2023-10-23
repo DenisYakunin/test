@@ -2,8 +2,8 @@
 
 namespace App\Lib;
 use App\Lib\Interfaces\FileFactoryInterface;
-use App\Lib\Csv;
-use App\Lib\Xml;
+use App\Lib\CsvReader;
+use App\Lib\XmlReader;
 
 class FactoryOfFileFactories
 {

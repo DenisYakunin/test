@@ -3,7 +3,7 @@
 namespace App\lib;
 use App\lib\interfaces\FileInterface;
 
-class Xml implements FileInterface
+class XmlReader implements FileInterface
 {
     public function toArray($path): array
     {

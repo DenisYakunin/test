@@ -8,6 +8,6 @@ class CsvFactory implements FileFactoryInterface
 {
     public function createFile(): FileInterface
     {
-        return new Csv();
+        return new CsvReader();
     }
 }

@@ -3,7 +3,7 @@
 namespace App\Lib;
 use App\Lib\Interfaces\FileInterface;
 
-class Csv implements FileInterface
+class CsvReader implements FileInterface
 {
     public function toArray(string $path): array {
         $csvFile = file($path);

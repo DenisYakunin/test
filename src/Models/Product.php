@@ -15,8 +15,7 @@ class Product
     public string $amount_available;
     public string $status;
 
-    public function __construct(array $paramList, int $row = 0) {
-
+    public function createProduct(array $paramList) {
         $paramList = $this->makeSafe($paramList);
         $paramList = $this->changeEncoding($paramList);
         $paramList = $this->changeTypes($paramList);

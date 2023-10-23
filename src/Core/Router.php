@@ -6,12 +6,11 @@ use App\Lib\AppException;
 class Router
 {
 
-    public function __construct() {
+    public function __construct(array $routes, \Storage $storageModel, \Product $productModel) {
 
         $url = trim($_SERVER['REQUEST_URI'], "/");
-        $arr = require_once __DIR__ . '/../Config/routes.php';
 
-        $param = $this->findParams($arr, $url);
+        $param = $this->findParams($routes, $url);
         $controllerPath = __DIR__ . '/../Controllers/' . $param['controller'] . '.php';
 
         if(!file_exists($controllerPath)) {
@@ -21,7 +20,7 @@ class Router
 
         require_once $controllerPath;
         $controllerName = $param['controller'];
-        $controller = new $controllerName();
+        $controller = new $controllerName($storageModel, $productModel);
 
         call_user_func_array([$controller, $param['action']], $param['numbers']);
     }

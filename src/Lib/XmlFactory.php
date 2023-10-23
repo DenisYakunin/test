@@ -8,6 +8,6 @@ class XmlFactory implements FileFactoryInterface
 {
     public function createFile(): FileInterface
     {
-        return new Xml();
+        return new XmlReader();
     }
 }
