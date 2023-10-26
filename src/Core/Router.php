@@ -7,6 +7,11 @@ class Router
 {
     private array $routes;
     private string $url;
+    public string $controller;
+    public string $action;
+    public array $numbers;
+    public string $controllerPath;
+
 
     public function __construct(array $routes) {
         $this->routes = $routes;
@@ -16,15 +21,14 @@ class Router
     /**
      * @throws AppException
      */
-    public function getRequestParams(): array {
+    public function getRequestParams(): void {
         $paramsList = $this->findEndpoint($this->routes, $this->url);
         $params = $this->findParams($paramsList);
-        $params['numbers'] = $this->extractEndpointNumbers($this->routes, $this->url);
 
-        $controllerPath = __DIR__ . '/../Controllers/' . $params['controller'] . '.php';
-        $params['controllerPath'] = $controllerPath;
-
-        return $params;
+        $this->controller = $params['controller'];
+        $this->action = $params['action'];
+        $this->numbers = $this->extractEndpointNumbers($this->routes, $this->url);
+        $this->controllerPath = '/app/src/Controllers/' . $params['controller'] . '.php';
     }
 
     /**
