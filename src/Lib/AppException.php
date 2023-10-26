@@ -2,11 +2,18 @@
 
 namespace App\Lib;
 
-class AppException extends \Exception
+use DateTime;
+use DateTimeZone;
+use Exception;
+
+class AppException extends Exception
 {
+    /**
+     * @throws Exception
+     */
     public function logException()
     {
-        $date = new \DateTime('now', new \DateTimeZone('Europe/Moscow'));
+        $date = new DateTime('now', new DateTimeZone('Europe/Moscow'));
         if (!file_exists(__DIR__ . '/../../log')) {
             mkdir(__DIR__ . '/../../log');
         }

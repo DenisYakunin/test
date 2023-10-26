@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Core;
-
 use App\Lib\AppException;
 
 class Model
 {
+    /**
+     * @throws AppException
+     */
     public function loadModel($modelName, $arg = null) {
 
         $modelPath = __DIR__ . '/../Models/' . $modelName . '.php';

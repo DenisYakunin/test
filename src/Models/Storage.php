@@ -20,5 +20,4 @@ class Storage
     public function saveProducts(array $listProducts): void {
         file_put_contents($this->path, json_encode($listProducts));
     }
-
 }

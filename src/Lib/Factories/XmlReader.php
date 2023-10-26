@@ -1,11 +1,11 @@
 <?php
 
-namespace App\lib;
-use App\lib\interfaces\FileInterface;
+namespace App\Lib\Factories\FileReaderFactory;;
+use App\lib\interfaces\FileReaderInterface;
 
-class XmlReader implements FileInterface
+class XmlReader implements FileReaderInterface
 {
-    public function toArray($path): array
+    public function readProductData($path): array
     {
         $xmlFile = simplexml_load_file($path);
         $productsList = [];

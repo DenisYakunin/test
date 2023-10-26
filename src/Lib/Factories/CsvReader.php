@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Lib;
-use App\Lib\Interfaces\FileInterface;
+namespace App\Lib\Factories\FileReaderFactory;;
+use App\Lib\Interfaces\FileReaderInterface;
 
-class CsvReader implements FileInterface
+class CsvReader implements FileReaderInterface
 {
-    public function toArray(string $path): array {
+    public function readProductData(string $path): array {
         $csvFile = file($path);
         $productsList = [];
         foreach ($csvFile as $row) {
