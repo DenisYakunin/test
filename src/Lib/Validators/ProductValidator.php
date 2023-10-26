@@ -14,7 +14,7 @@ class ProductValidator
      * @throws AppException
      */
     public function isValidCode(string $code): bool {
-        $pattern = preg_match('/^\d{0,3}-\d+$/',$code);
+        $pattern = preg_match('/^\d{1,3}-\d+$/',$code);
         if ((strlen($code) > 10) or !$pattern) {
             throw new AppException('Неправильный код', 400);
         }
@@ -55,9 +55,9 @@ class ProductValidator
     /**
      * @throws AppException
      */
-    public function isValidAmount(int $amount):bool {
-        if ($amount < 0) {
-            throw new AppException('Неправильное количество', 400);
+    public function isValidAmount(string $amount):bool {
+        if (!ctype_digit($amount)) {
+            throw new AppException('Неправильный статус', 400);
         }
         return true;
     }
@@ -65,8 +65,11 @@ class ProductValidator
     /**
      * @throws AppException
      */
-    public function isValidStatus(int $status):bool {
-        if ($status != 0 and $status != 1) {
+    public function isValidStatus(string $status):bool {
+        if (!ctype_digit($status)) {
+            throw new AppException('Неправильный статус', 400);
+        }
+        if ($status != '0' and $status != '1') {
             throw new AppException('Неправильный статус', 400);
         }
         return true;
