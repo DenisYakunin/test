@@ -28,7 +28,7 @@ class Router
         $this->controller = $params['controller'];
         $this->action = $params['action'];
         $this->numbers = $this->extractEndpointNumbers($this->routes, $this->url);
-        $this->controllerPath = '/app/src/Controllers/' . $params['controller'] . '.php';
+        $this->controllerPath = __DIR__ . '/../Controllers/' . $params['controller'] . '.php';
     }
 
     /**
