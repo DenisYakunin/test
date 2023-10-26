@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Lib\Factories\FileReaderFactory;;
+namespace App\Lib\Factories;
 use App\Lib\Interfaces\FileReaderInterface;
 
 class CsvReader implements FileReaderInterface

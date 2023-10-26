@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Lib\Factories\FileReaderFactory;;
+namespace App\Lib\Factories;
 use App\lib\interfaces\FileReaderInterface;
 
 class XmlReader implements FileReaderInterface

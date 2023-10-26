@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Lib\Factories\FileReaderFactory;
+namespace App\Lib\Factories;
 use App\lib\Interfaces\FileReaderFactoryInterface;
 use App\lib\Interfaces\FileReaderInterface;
 
