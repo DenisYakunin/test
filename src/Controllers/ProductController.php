@@ -5,7 +5,7 @@ use App\Lib\AppException;
 use App\Lib\Validators\ProductSchemeValidator;
 use App\Lib\Validators\ProductValidator;
 use App\Lib\RequestDataExtractor;
-use src\Lib\ProductMapper;
+use App\Lib\ProductMapper;
 
 class ProductController extends Controller
 {
