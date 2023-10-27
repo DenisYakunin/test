@@ -1,11 +1,11 @@
 <?php
 
-use src\Core\Controller;
-use src\Lib\AppException;
+use App\Core\Controller;
+use App\Lib\AppException;
+use App\Lib\Validators\ProductSchemeValidator;
+use App\Lib\Validators\ProductValidator;
+use App\Lib\RequestDataExtractor;
 use src\Lib\ProductMapper;
-use src\Lib\Validators\ProductSchemeValidator;
-use src\Lib\Validators\ProductValidator;
-use src\Lib\RequestDataExtractor;
 
 class ProductController extends Controller
 {

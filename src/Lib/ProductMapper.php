@@ -1,6 +1,6 @@
 <?php
 
-namespace src\Lib;
+namespace App\Lib;
 use PDO;
 use Product;
 
