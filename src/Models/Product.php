@@ -2,6 +2,7 @@
 
 class Product
 {
+    public int $id;
     public string $code;
     public string $price;
     public string $name;
@@ -14,12 +15,19 @@ class Product
         $paramList = $this->changeEncoding($paramList);
         $paramList = $this->changeTypes($paramList);
 
+        if (isset($paramList['id'])) {
+            $this->id = $paramList['id'];
+        }
         $this->code = $paramList['code'];
         $this->price = $paramList['price'];
         $this->name = $paramList['name'];
         $this->description = $paramList['description'];
-        $this->amount_available = $paramList['amount_available'];
-        $this->status = $paramList['status'];
+        if (isset($paramList['amount_available'])) {
+            $this->amount_available = $paramList['amount_available'];
+        }
+        if (isset($paramList['amount_available'])) {
+            $this->status = $paramList['status'];
+        }
     }
 
     private function makeSafe(array $data): array {
@@ -48,5 +56,4 @@ class Product
         }
         return $newData;
     }
-
 }

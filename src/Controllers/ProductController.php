@@ -2,21 +2,21 @@
 
 use App\Core\Controller;
 use App\Lib\AppException;
+use App\Lib\ProductRepository;
 use App\Lib\Validators\ProductSchemeValidator;
 use App\Lib\Validators\ProductValidator;
 use App\Lib\RequestDataExtractor;
-use App\Lib\ProductMapper;
 
 class ProductController extends Controller
 {
-    private ProductMapper $db;
+    private ProductRepository $db;
     private Product $product;
     private ProductValidator $productValidator;
     private RequestDataExtractor $requestDataExtractor;
     private ProductSchemeValidator $productSchemeValidator;
 
     public function __construct(
-        ProductMapper $db,
+        ProductRepository $db,
         Product $productModel,
         ProductValidator $productValidator,
         ProductSchemeValidator $productSchemeValidator,
